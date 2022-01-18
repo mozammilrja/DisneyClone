@@ -12,7 +12,7 @@ function Hero() {
         <Image
           src="/images/hero-background.jpg"
           layout="fill"
-          objectFit="cover"
+          objectFit="cover" alt=""
         />
       </div>
       <div className="flex justify-center items-center">
@@ -21,7 +21,7 @@ function Hero() {
             src="/images/cta-logo-one.svg"
             width="600"
             height="150"
-            objectFit="contain"
+            objectFit="contain" alt=""
           />
           <h1 className="text-white text-[20px] font-bold ">Get endless entertainment, live sports, and the shows and <br/> 
            <h1 className="text-white text-center">movies you love.</h1> </h1>
@@ -37,7 +37,7 @@ function Hero() {
             src="/images/cta-logo-two.png"
             width="600"
             height="70"
-            objectFit="contain"
+            objectFit="contain" alt=""
           />
         <div className="flex justify-center items-center underline ">
           <button className="font-lg" >Sign up for disney only</button>

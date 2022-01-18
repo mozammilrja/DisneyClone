@@ -56,10 +56,10 @@ function Header({ title, Icon }) {
         ) : (
           <div className="ml-auto flex justify-between">
           <h1 className="text-white pt-3 mr-2 " >{session.user.name}</h1>
-          <img
+          <Image
             src={session.user.image}
             className="ml-auto h-12 w-12 rounded-full object-cover cursor-pointer"
-            onClick={signOut}
+            onClick={signOut} alt=""
           />
           </div>
         )

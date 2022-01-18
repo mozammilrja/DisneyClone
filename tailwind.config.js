@@ -16,6 +16,9 @@ module.exports = {
       fonts: ["Montserrat", "sans-serif"],
     },
   },
+  eslint: {
+    dirs: ['pages', 'utils'], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
+  },
   plugins: [
     require('tailwind-scrollbar-hide')
   ]

@@ -4,7 +4,10 @@ import FlipMove from 'react-flip-move';
 import { forwardRef } from "react";
 import { useRouter } from "next/router";
 
-const Thumbnail = forwardRef (({ result },ref)=> {
+const Thumbnail = forwardRef (({ result },ref)=> 
+// eslint-disable-next-line react/display-name
+{
+    
     const router = useRouter();
 
     const BASE_URL = "https://image.tmdb.org/t/p/original/";
@@ -12,7 +15,7 @@ const Thumbnail = forwardRef (({ result },ref)=> {
         <div  
         ref={ref}
           onClick={() => router.push(`/movie/${result.id}`)}
-        className="group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 ">
+            className="group cursor-pointer transition duration-200 ease-in transform sm:hover:scale-105 hover:z-50 ">
             <Image
                 src={
                     `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
@@ -21,7 +24,7 @@ const Thumbnail = forwardRef (({ result },ref)=> {
                 width={330}
                 height={210}
                 objectFit="cover"
-                className="rounded-lg "
+                className="rounded-lg " alt=""
             />
             <div className="p-2">
                 <h2 className="mt-1 text-2xl text-white transition-all duration-100 ease-in-out group-hover:font-bold "> {result.title || result.original_name} </h2>

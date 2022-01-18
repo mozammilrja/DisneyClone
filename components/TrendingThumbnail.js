@@ -15,13 +15,11 @@ function TrendingThumbnail({ result }) {
           `${BASE_URL}${result.backdrop_path || result.poster_path}` ||
           `${BASE_URL}${result.poster_path}`
           `${BASE_URL}${result.original_name} || ${result.title}`
-    
-          
         }
         width={330}
         height={210}
         objectFit="cover"
-        className="rounded-lg"
+        className="rounded-lg" alt=""
       />
        <h1 className="text-2xl  font-bold">
              

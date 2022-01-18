@@ -18,7 +18,7 @@ function Show({ result }) {
     if (!session) {
       router.push("/");
     }
-  }, []);
+  },);
 
   const index = result.videos.results.findIndex(
     (element) => element.type === "Trailer"
@@ -42,7 +42,7 @@ function Show({ result }) {
                 `${BASE_URL}${result.poster_path}`
               }
               layout="fill"
-              objectFit="cover"
+              objectFit="cover" alt=""
             />
           </div>
           <div className="absolute inset-y-12 md:inset-y-auto md:bottom-10 inset-x-4 md:inset-x-12 space-y-6 z-50">
@@ -51,7 +51,7 @@ function Show({ result }) {
             </h1>
             <div className="flex items-center space-x-3 md:space-x-5">
               <button className="text-xs md:text-base bg-[#f9f9f9] text-black flex items-center justify-center py-2.5 px-6 rounded hover:bg-[#c6c6c6]">
-                <img
+                <Image
                   src="/images/play-icon-black.svg"
                   alt=""
                   className="h-6 md:h-8"
@@ -65,7 +65,7 @@ function Show({ result }) {
                 className="text-xs md:text-base bg-black/30 text-[#f9f9f9] border border-[#f9f9f9] flex items-center justify-center py-2.5 px-6 rounded hover:bg-[#c6c6c6]"
                 onClick={() => setShowPlayer(true)}
               >
-                <img
+                <Image
                   src="/images/play-icon-white.svg"
                   alt=""
                   className="h-6 md:h-8"
@@ -80,7 +80,7 @@ function Show({ result }) {
               </div>
 
               <div className="rounded-full border-2 border-white flex items-center justify-center w-11 h-11 cursor-pointer bg-black/60">
-                <img src="/images/group-icon.svg" alt="" />
+                <Image src="/images/group-icon.svg" alt="" />
               </div>
             </div>
 

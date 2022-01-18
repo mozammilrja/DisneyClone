@@ -19,7 +19,7 @@ const BASE_URL = "https://image.tmdb.org/t/p/original/";
           width={330}
           height={210}
           objectFit="cover"
-          className="rounded-lg"
+          className="rounded-lg" alt=""
         />
       </div>
     )

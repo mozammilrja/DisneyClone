@@ -18,7 +18,7 @@ function ShowThumbnail({ result }) {
         width={330}
         height={210}
         objectFit="cover"
-        className="rounded-lg"
+        className="rounded-lg" alt=""
       />
     </div>
   );
