@@ -9,13 +9,12 @@ import { PlusIcon, XIcon } from "@heroicons/react/solid";
 import ReactPlayer from "react-player/lazy";
 
 function Show({ result }) {
-    const { data: session, status } = useSession()
+  const { data: session, status } = useSession()
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
   const router = useRouter();
   const [showPlayer, setShowPlayer] = useState(false);
 
   useEffect(() => {
-    // window.scrollTo(100, 500);
     if (!session) {
       router.push("/");
     }

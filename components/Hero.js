@@ -23,12 +23,14 @@ function Hero() {
             height="150"
             objectFit="contain"
           />
+          <h1 className="text-white text-[20px] font-bold ">Get endless entertainment, live sports, and the shows and <br/> 
+           <h1 className="text-white text-center">movies you love.</h1> </h1>
           <button className="bg-blue-600 uppercase text-xl tracking-wide font-extrabold py-4 px-6 w-full rounded hover:bg-[#0485ee]">
-            Get all there
+            Get the disney bundle
           </button>
           <p className="text-xs text-center ">
             Get Premier Access to Raya and the Last Dragon for an additional fee
-            with a Disney+ subscription. As of 03/26/21, the price of Disney+
+            with a Disney+ subscription. price of Disney+
             and The Disney Bundle will increase by $
           </p>
           <Image
@@ -37,6 +39,20 @@ function Hero() {
             height="70"
             objectFit="contain"
           />
+        <div className="flex justify-center items-center underline ">
+          <button className="font-lg" >Sign up for disney only</button>
+        </div>
+        </div>
+        <div className=" bg-[#222222]  z-[1000] flex flex-col justify-center items-center   w-[100%] pb-10 ">
+        <Image className="object-contain items-center "
+        src="/images/logo.svg"
+        alt=""
+        width={180}
+        height={80}
+      />
+      <div className=" flex justify-evenly ">
+      <h1 className="text-blue-500 text-[14px] font-bold "> Terms and Privacy NoticeSend us feedbackHelp   </h1>  <br/> <h1 className="text-gray-700 text-[14px] font-bold ">  ©1996-2022, Amazon.com, Inc. or its affiliates </h1>
+      </div>
         </div>
       </div>
     </section>

@@ -1,20 +1,21 @@
 import { getSession, useSession } from "next-auth/react";
+import React,{ useEffect} from "react"
 import Head from "next/head";
+import axios from "axios";
 import Brands from "../components/Brands";
-import MoviesCollection from "../components/MoviesCollection";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Slider from "../components/Slider";
-import ShowsCollection from "../components/ShowsCollection";
-import Trending from "../components/Trending";
-import Footer from "../components/Footer";
+import requests from '../utils/request'
+import Navbar from "../components/Navbar";
+import Results from "../components/Results";
 
-export default function Home({
-  popularMovies,
-  popularShows,
-  top_ratedMovies,
-  top_ratedShows,
-}) {
+
+export default function Home({results}) {
+
+  useEffect(() => {
+    window.scrollTo(200, 400);
+}, [])
   const { data: session, status } = useSession()
   return (
     <div>
@@ -29,20 +30,14 @@ export default function Home({
       {!session ? (
         <Hero />
       ) : (
-        <main className="relative min-h-screen after:bg-home after:bg-center after:bg-cover after:bg-no-repeat after:bg-fixed after:absolute after:inset-0 after:z-[-1]">
+     <div>
+      <Navbar/>
+     <main className="relative min-h-screen after:bg-home after:bg-center after:bg-cover after:bg-no-repeat after:bg-fixed after:absolute after:inset-0 after:z-[-1]">
           <Slider />
           <Brands />
-          <Trending results={popularMovies} title="Latest & Trending" />
-          {/* <MoviesCollection results={popularMovies} title="Popular Movies" /> */}
-          <ShowsCollection results={popularShows} title="Popular Shows" />
-
-          <MoviesCollection
-            results={top_ratedMovies}
-            title="Top Rated Movies"
-          />
-          <ShowsCollection results={top_ratedShows} title="Top Rated Shows" />
-          <Footer/>
+          <Results results={results} />
         </main>
+     </div>
       )}
     </div>
   );
@@ -50,50 +45,18 @@ export default function Home({
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  const genre = context.query.genre;
 
-  const [
-    
-    popularMoviesRes,
-    popularShowsRes,
-    top_ratedMoviesRes,
-    top_ratedShowsRes,
-   recommendations
-  ] = await Promise.all([
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
-    ),
-    fetch(
-      `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
-    ),
-    fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`
-    ),
-    fetch(
-      `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&language=en-US&page=1`
-    ),
-    fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.API_KEY}&language=en-US&page=1`
-    ),
-  
-  ]);
-
-  const [popularMovies, popularShows, top_ratedMovies, top_ratedShows,  ] =
-    await Promise.all([
-      popularMoviesRes.json(),
-      popularShowsRes.json(),
-      top_ratedMoviesRes.json(),
-      top_ratedShowsRes.json(),
-      // recommended.json(),
-    ]);
+  const request = await fetch(
+    `https://api.themoviedb.org/3${
+      requests[genre]?.url || requests.fetchTrending.url
+    }`
+    ).then((res) => res.json())
 
   return {
     props: {
       session,
-      popularMovies: popularMovies.results,
-      popularShows: popularShows.results,
-      top_ratedMovies: top_ratedMovies.results,
-      top_ratedShows: top_ratedShows.results,
-      // recommended: recommended.results,
+      results: request.results,
     },
   };
 }
