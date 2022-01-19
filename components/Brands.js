@@ -16,7 +16,7 @@ function Brands() {
       </div>
 
       <div className="brand group">
-        <Image src="/images/pixar.png" layout="fill" objectFit="cover" alt="" />
+        <Image src="/images/pixar.png" layout="fill" objectFit="cover"  alt=""/>
         <video
           autoPlay
           loop
@@ -28,7 +28,7 @@ function Brands() {
       </div>
 
       <div className="brand group">
-        <Image src="/images/marvel.png" layout="fill" objectFit="cover" alt="" />
+        <Image src="/images/marvel.png" layout="fill" objectFit="cover"alt="" />
         <video
           autoPlay
           loop
@@ -47,7 +47,7 @@ function Brands() {
           playsInline
           className="hidden group-hover:inline rounded-lg object-cover"
         >
-          <source src="/videos/star-wars.mp4" type="video/mp4" />
+          <source src="/videos/star-wars.mp4" type="video/mp4"  alt=""/>
         </video>
       </div>
 

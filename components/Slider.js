@@ -1,6 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel"
-import Image from "next/image"
+import Image from 'next/image'
+
 
 function Slider({}) {
     return (
@@ -15,16 +16,34 @@ function Slider({}) {
         interval={5000}
       >
         <div>
-          <Image loading="lazy" src="/images/slider-1.jpg" alt="" />
+          <img loading="lazy" src="/images/slider-1.jpg" alt="" />
         </div>
         <div>
-          <Image loading="lazy" src="/images/slider-2.jpg" alt="" />
+          <img loading="lazy" src="/images/slider-2.jpg" alt="" />
         </div>
         <div>
-          <Image loading="lazy" src="/images/slider-3.jpg" alt="" />
+          <img loading="lazy" src="/images/slider-3.jpg" alt="" />
         </div>
         <div>
-          <Image loading="lazy" src="/images/slider-4.jpeg" alt="" />
+          <img loading="lazy" src="/images/slider-4.jpeg" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="/images/slider-4.jpeg" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="/images/slider-1.jpg" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="/images/slider-2.jpg" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="/images/slider-3.jpg" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="/images/slider-4.jpeg" alt="" />
+        </div>
+        <div>
+          <img loading="lazy" src="/images/slider-4.jpeg" alt="" />
         </div>
       </Carousel>
     </section>
@@ -32,3 +51,26 @@ function Slider({}) {
 }
 
 export default Slider
+
+
+{/* <Carousel
+autoPlay
+infiniteLoop
+showStatus={false}
+showIndicators={false}
+showThumbs={false}
+interval={5000}
+>
+<div>
+  <Image loading="lazy" src="/images/slider-1.jpg" alt="" width={"1450%"} height={"450%"} />
+</div>
+<div>
+  <Image loading="lazy" src="/images/slider-2.jpg" alt=""   width={"1450%"} height={"450%"}/>
+</div>
+<div>
+  <Image loading="lazy" src="/images/slider-3.jpg" alt=""   width={"1450%"} height={"450%"}/>
+</div>
+<div>
+  <Image loading="lazy" src="/images/slider-4.jpeg" alt=""  width={"1450%"} height={"450%"} />
+</div>
+</Carousel> */}

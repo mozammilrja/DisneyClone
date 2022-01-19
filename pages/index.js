@@ -9,6 +9,7 @@ import Slider from "../components/Slider";
 import requests from '../utils/request'
 import Navbar from "../components/Navbar";
 import Results from "../components/Results";
+import Search from "../components/Search";
 
 
 export default function Home({results}) {
@@ -35,6 +36,7 @@ export default function Home({results}) {
      <main className="relative min-h-screen after:bg-home after:bg-center after:bg-cover after:bg-no-repeat after:bg-fixed after:absolute after:inset-0 after:z-[-1]">
           <Slider />
           <Brands />
+          <Search />
           <Results results={results} />
         </main>
      </div>
@@ -50,7 +52,7 @@ export async function getServerSideProps(context) {
   const request = await fetch(
     `https://api.themoviedb.org/3${
       requests[genre]?.url || requests.fetchTrending.url
-    }`
+}`
     ).then((res) => res.json())
 
   return {
