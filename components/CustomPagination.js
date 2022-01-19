@@ -3,7 +3,6 @@ import Pagination from "@material-ui/lab/Pagination";
 import { ThemeProvider } from "@material-ui/core";
 
 export default function CustomPagination({ setPage, numOfPages = 100 }) {
-  // Scroll to top when page changes
   const handlePageChange = (page) => {
     setPage(page);
     window.scroll(0, 0);
