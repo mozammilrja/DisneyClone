@@ -4,7 +4,7 @@ import FlipMove from 'react-flip-move';
 import { forwardRef ,useEffect} from "react";
 import { useRouter } from "next/router";
 
-const Thumbnail =  ({ result })=> {
+const Thumbnail = forwardRef (({ result },ref)=> {
     const router = useRouter();
     const BASE_URL = "https://image.tmdb.org/t/p/original/";
 
@@ -40,7 +40,7 @@ const Thumbnail =  ({ result })=> {
             </div>
         </div>
     )
-}
+})
 
 export default Thumbnail
 

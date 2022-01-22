@@ -1,0 +1,29 @@
+import { getProviders, signIn } from "next-auth/react"
+import Header from '../../components/Header'
+
+export default function SignIn({ providers }) {
+    return (
+        <>
+            <Header />
+     <div className="bg-white justify-center mt-50">
+         <div className="mt-10">
+         {Object.values(providers).map((provider) => (
+                <div  className="btn btn-secondary btn-lg mr-4" key={provider.name}>
+                    <button onClick={() => signIn(provider.id,{callbackUrl:'/'})}>
+                        Sign in with {provider.name}
+                    </button>
+                </div>
+            ))}
+         </div>
+     </div>
+    </>
+    )
+}
+
+// This is the recommended way for Next.js 9.3 or newer
+export async function getServerSideProps(context) {
+    const providers = await getProviders()
+    return {
+        props: { providers },
+    }
+}
