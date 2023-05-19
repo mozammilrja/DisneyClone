@@ -13,6 +13,8 @@ function Search() {
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState();
 
+    console.log(content, 'content')
+
     const fetchSearch = async () => {
         try {
             const { data } = await axios.get(
@@ -25,7 +27,9 @@ function Search() {
             console.error(error);
         }
     };
-
+    const handleInputChange = (e) => {
+        setSearchText(e.target.value);
+    };
     useEffect(() => {
         window.scroll(0, 550);
         fetchSearch();
@@ -34,23 +38,24 @@ function Search() {
     return (
         <>
             <div className="mt-5 flex justify-center items-center  ">
-                <input
-                    onChange={(e) => setSearchText(e.target.value)}
+                {/* <input
+                    type="text" value={searchText}
+                    onChange={handleInputChange}
                     className="shadow appearance-none border rounded  py-1.5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search"
                 />
                 <button onClick={fetchSearch}>
                     <SearchIcon className="h-8 ml-2" />
-                </button>
+                </button> */}
             </div>
-           
+
             <FlipMove className=" px-7 my-10 sm:grid md:grid-cols-2 lg:grid-cols-4 3xl:flex flex-wrap justify-center ">
-            {content.map((result) =>(
-                <SearchThumbnail key={result.id} result={result} />
-            ))}
-        </FlipMove>
-        {numOfPages > 1 && (
-        <CustomPagination setPage={setPage} numOfPages={numOfPages} />
-      )}
+                {content.map((result) => (
+                    <SearchThumbnail key={result.id} result={result} />
+                ))}
+            </FlipMove>
+            {numOfPages > 1 && (
+                <CustomPagination setPage={setPage} numOfPages={numOfPages} />
+            )}
         </>
     );
 }
